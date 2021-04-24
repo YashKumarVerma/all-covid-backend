@@ -1,0 +1,19 @@
+app:
+  name: COVID 19 Resources
+
+server:
+  port: 3000
+
+database:
+  string: 'mongodb://127.0.0.1:27017/covid_19'
+
+# login_token:
+#   secret: super-secret
+#   expires: 1d
+#   issuer: yashkumarverma
+#   cookie: rbs_login
+
+# cache:
+#   host: '127.0.0.1'
+#   port: 6379
+#   enable: true
