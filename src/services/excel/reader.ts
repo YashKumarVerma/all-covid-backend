@@ -15,18 +15,35 @@ const initializeDatasets = () => {
     const wb: WorkBook = read(b)
 
     const oxygenDataset: Array<OxygenDataset> = utils.sheet_to_json(wb.Sheets.oxygen)
-    const resourceDataset: Array<ResourceDataset> = utils.sheet_to_json(wb.Sheets.resource)
-
+    let resourceDataset: Array<ResourceDataset> = utils.sheet_to_json(wb.Sheets.resource)
     /** save dataset into memory to be used by other modules */
+
+    /** convert tags to individual string components */
+    resourceDataset = resourceDataset.map((row: ResourceDataset | any) => {
+      const filteredData: ResourceDataset = {
+        credits: row.credit,
+        description: row.description,
+        image: row.image,
+        reference: row.reference,
+        timestamp: row.timestamp,
+        title: row.title,
+        tags: row.tags.split(',').map((x: string) => x.trim()),
+      }
+
+      return filteredData
+    })
+
     dataset = {
       oxygen: oxygenDataset,
       resource: resourceDataset,
     }
-    logger.info('dataset.load')
+    logger.info('dataset.load.successful')
   } catch (e) {
     logger.error('dataset.load')
   }
 }
+
+initializeDatasets()
 
 const fetchDataset = (): Dataset => dataset
 

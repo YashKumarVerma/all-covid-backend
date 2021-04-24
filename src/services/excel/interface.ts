@@ -13,8 +13,8 @@ export interface OxygenDataset {
   name: string
   city: string
   contact: string
-  locality: string
-  lastVerified: LastModified
+  address: string
+  verified: LastModified
 }
 
 /**

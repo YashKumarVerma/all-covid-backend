@@ -2,13 +2,14 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import { HttpExceptionTransformer } from 'http-exception-transformer'
-import { initializeMongoDB } from './services/database/mongoose'
+// import { initializeMongoDB } from './services/database/mongoose'
 import { initializeDatasets } from './services/excel/reader'
 
 /** link all modules onto application */
+import ResourceRoutes from './modules/resources/routes'
 
 /** initialize database connections */
-initializeMongoDB()
+// initializeMongoDB()
 initializeDatasets()
 
 /**
@@ -29,7 +30,7 @@ app.get('', (req, res) => {
   res.json({ alive: true })
 })
 
-// app.use('/user', UserRoutes)
+app.use('/resource', ResourceRoutes)
 
 app.use(HttpExceptionTransformer)
 export default app
