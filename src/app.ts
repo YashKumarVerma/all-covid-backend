@@ -3,11 +3,13 @@ import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import { HttpExceptionTransformer } from 'http-exception-transformer'
 import { initializeMongoDB } from './services/database/mongoose'
+import { initializeDatasets } from './services/excel/reader'
 
 /** link all modules onto application */
 
 /** initialize database connections */
 initializeMongoDB()
+initializeDatasets()
 
 /**
  * Initialize express application to hook all middleware
