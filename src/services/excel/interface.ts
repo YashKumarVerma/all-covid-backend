@@ -1,21 +1,21 @@
 /** breakdown of any date into user friendly format */
-interface LastModified {
-  day: number
-  month: number
-  year: number
-}
+// interface LastModified {
+//   day: number
+//   month: number
+//   year: number
+// }
 
 /**
  * interface for Oxygen Dataset
  */
-export interface OxygenDataset {
-  timestamp: number
-  name: string
-  city: string
-  contact: string
-  address: string
-  verified: LastModified
-}
+// export interface OxygenDataset {
+//   timestamp: number
+//   name: string
+//   city: string
+//   contact: string
+//   address: string
+//   verified: LastModified
+// }
 
 /**
  * interface for resource dataset
@@ -28,9 +28,10 @@ export interface ResourceDataset {
   image: string
   reference: string
   credits: string
+  location: string
+  volunteer: string
 }
 
 export interface Dataset {
-  oxygen: Array<OxygenDataset>
   resource: Array<ResourceDataset>
 }
