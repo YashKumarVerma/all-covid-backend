@@ -34,4 +34,5 @@ export interface ResourceDataset {
 
 export interface Dataset {
   resource: Array<ResourceDataset>
+  tags: Array<string>
 }

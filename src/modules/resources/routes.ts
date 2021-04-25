@@ -9,4 +9,9 @@ router.get('/', (req: Request, res: Response) => {
   return res.json(data)
 })
 
+router.get('/tags', (req: Request, res: Response) => {
+  const data = SuccessToResponseMapper(fetchDataset().tags)
+  return res.json(data)
+})
+
 export default router
