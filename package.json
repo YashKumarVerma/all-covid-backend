@@ -10,7 +10,7 @@
     "build": "tsc",
     "start:dev": "nodemon",
     "start:prod": "node ./dist/src/server.js",
-    "deploy":"PORT=80 pm2 start dist/src/server.js --name \"covid\" -i 4",
+    "deploy": "PORT=80 pm2 start dist/src/server.js --name \"covid\" -i 4",
     "test:e2e": "NODE_ENV=test ./node_modules/mocha/bin/mocha --require ts-node/register --exit ./test/**/*.ts"
   },
   "dependencies": {
