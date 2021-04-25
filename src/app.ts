@@ -1,6 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
+import cors from "cors"
 import { HttpExceptionTransformer } from 'http-exception-transformer'
 // import { initializeMongoDB } from './services/database/mongoose'
 import { initializeDatasets } from './services/excel/reader'
@@ -24,6 +25,7 @@ app.use(
 )
 app.use(bodyParser.json())
 app.use(cookieParser())
+app.use(cors())
 
 /** alive message on landing page */
 app.get('', (req, res) => {
